@@ -3,7 +3,7 @@ import ProductCategoryRow from "../product-category-row/ProductCategoryRow";
 import ProductRow from "../product-row/ProductRow";
 
 export default function ProductTable(props: IProductTableProps) {
-  const { products } = props;  
+  const { products, showInStockOnly } = props;  
   const rows: React.ReactNode[] = [];
 
   let lastCategory: string = '';

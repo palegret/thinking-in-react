@@ -9,17 +9,17 @@ import type IFilterableProductTableProps from "./IFilterableProductTableProps";
 export default function FilterableProductTable(props: IFilterableProductTableProps) {
   const { products } = props;
   const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);
+  const [showInStockOnly, setShowInStockOnly] = useState(false);
   
   return (
     <div>
       <SearchBar 
         filterText={filterText} 
-        inStockOnly={inStockOnly} />
+        showInStockOnly={showInStockOnly} />
       <ProductTable 
         products={products}
         filterText={filterText}
-        inStockOnly={inStockOnly} />
+        showInStockOnly={showInStockOnly} />
     </div>
   );
 }
