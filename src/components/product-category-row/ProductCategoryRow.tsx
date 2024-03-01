@@ -1,4 +1,4 @@
-import IProductCategoryProps from './IProductCategoryProps';
+import type IProductCategoryProps from './IProductCategoryProps';
 
 export default function ProductCategoryRow(props: IProductCategoryProps) {
   const { category } = props;
@@ -6,7 +6,7 @@ export default function ProductCategoryRow(props: IProductCategoryProps) {
   return (
     <tr>
       <th colSpan="2">
-        {category}
+        <span className='ms-fontSize-l ms-fontWeight-bold'>{category}</span>
       </th>
     </tr>
   );

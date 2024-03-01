@@ -9,3 +9,40 @@ $ms-font-family-base: 'Optimistic Display', sans-serif;
 .ms-Fabric {
   font-family: $ms-font-family-base;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px;
+  padding: 0;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+body {
+  padding: 5px;
+}
+
+label {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+th {
+  padding-top: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 2px;
+  padding-right: 40px;
+}
