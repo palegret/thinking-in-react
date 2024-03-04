@@ -4,8 +4,8 @@ export default function ProductRow(props: IProductRowProps) {
   const { product } = props;
   const { stocked, name, price } = product;
 
-  const formattedName = stocked ? name : <span style={{ color: 'red' }}>{name}</span>;
-  const formattedPrice = stocked ? price : <span style={{ color: 'red' }}>{price}</span>;
+  const formattedName = stocked ? name : <span className="ms-fontColor-redDark">{name}</span>;
+  const formattedPrice = stocked ? price : <span className="ms-fontColor-redDark">{price}</span>;
 
   return (
     <tr>

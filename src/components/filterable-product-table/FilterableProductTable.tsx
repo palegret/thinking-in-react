@@ -10,13 +10,15 @@ export default function FilterableProductTable(props: IFilterableProductTablePro
   const { products } = props;
   const [filterText, setFilterText] = useState('');
   const [showInStockOnly, setShowInStockOnly] = useState(false);
-  
+
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
-        showInStockOnly={showInStockOnly} />
-      <ProductTable 
+      <SearchBar
+        filterText={filterText}
+        showInStockOnly={showInStockOnly}
+        onFilterTextChange={setFilterText}
+        onShowInStockOnlyChange={setShowInStockOnly} />
+      <ProductTable
         products={products}
         filterText={filterText}
         showInStockOnly={showInStockOnly} />

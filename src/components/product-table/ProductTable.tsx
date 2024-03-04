@@ -3,24 +3,25 @@ import ProductCategoryRow from "../product-category-row/ProductCategoryRow";
 import ProductRow from "../product-row/ProductRow";
 
 export default function ProductTable(props: IProductTableProps) {
-  const { products, showInStockOnly } = props;  
+  const { products, filterText, showInStockOnly } = props;
   const rows: React.ReactNode[] = [];
 
   let lastCategory: string = '';
 
   products.forEach((product) => {
-    const { name, category, filterText, stocked } = product;
-    const productMatchesFilter = new RegExp(filterText, 'i').test(name);
-    const shouldSkipProduct = showInStockOnly && !stocked;
-     
-    if (!productMatchesFilter || shouldSkipProduct)
+    const { name, category, stocked } = product;
+    const productFilter = new RegExp(filterText, 'i');
+
+    if (!productFilter.test(name))
       return;
 
-    const element: React.ReactNode = (category !== lastCategory)
-      ? <ProductCategoryRow category={category} key={category} />
-      : <ProductRow product={product} key={name} />;
+    if (showInStockOnly && !stocked)
+      return;
 
-    rows.push(element);
+    if (category !== lastCategory)
+      rows.push(<ProductCategoryRow category={category} key={category} />);
+
+    rows.push(<ProductRow product={product} key={name} />);
 
     lastCategory = category;
   });
@@ -29,8 +30,8 @@ export default function ProductTable(props: IProductTableProps) {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th className="ms-fontColor-themePrimary">Name</th>
+          <th className="ms-fontColor-themePrimary">Price</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
